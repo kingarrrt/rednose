@@ -41,6 +41,12 @@ env = Environment(
   tools=["default", "cython", "rednose_filter"],
 )
 
+# Setup cache dir
+if (cache_dir := os.getenv("SCONS_CACHE_DIR")) is not None:
+  print(f"scons: cache dir {cache_dir}")
+  CacheDir(cache_dir)
+  Clean(["."], cache_dir)
+
 # Cython build enviroment
 envCython = env.Clone()
 envCython["CCFLAGS"] += ["-Wno-#warnings", "-Wno-shadow", "-Wno-deprecated-declarations"]
