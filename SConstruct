@@ -47,7 +47,7 @@ if (cache_dir := os.getenv("SCONS_CACHE_DIR")) is not None:
   CacheDir(cache_dir)
   Clean(["."], cache_dir)
 
-# Cython build enviroment
+# Cython build environment
 envCython = env.Clone()
 envCython["CCFLAGS"] += ["-Wno-#warnings", "-Wno-shadow", "-Wno-deprecated-declarations"]
 
