@@ -15,6 +15,7 @@ cpppath = [
   '/usr/lib/include',
   python_path,
   np.get_include(),
+  *os.getenv("CPPPATH", "").split(":")
 ]
 
 env = Environment(
