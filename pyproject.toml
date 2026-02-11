@@ -1,3 +1,27 @@
+[project]
+name = "rednose"
+version = "0.0.1"
+description = "Kalman filter library"
+readme = "README.md"
+authors = [{ name = "comma.ai", email = "harald@comma.ai" }]
+license = { text = "MIT" }
+dependencies = ["numpy", "cffi", "sympy"]
+
+[project.optional-dependencies]
+testing = ["pytest", "pytest-xdist"]
+dev = ["scipy"]
+
+[project.urls]
+Homepage = "https://github.com/commaai/rednose"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "scons", "cython"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"rednose" = ["templates/*"]
+"rednose.helpers" = ["chi2_lookup_table.npy", "ekf_sym_pyx.so"]
+
 # https://beta.ruff.rs/docs/configuration/#using-pyprojecttoml
 [tool.ruff]
 line-length = 160
